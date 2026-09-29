@@ -67,4 +67,4 @@ class RoboticArm(Robot):
 
     def __str__(self):
         return f"super().__str__(), Joint Count: {self.joint_count}"
-
+        
