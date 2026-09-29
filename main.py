@@ -6,7 +6,6 @@ class Sensor:
         self.name = name
         self.type = type
 
-
 class Robot:
     """Base class for all robots."""
 
@@ -31,7 +30,7 @@ class Robot:
     def add_sensor(self, sensor):
         """Adds a sensor to the robot's sensor list."""
         self.sensors.append(sensor)
-        
+
     def check_sensor(self, sensor_id):
         """Checks if a sensor exists in the robot's sensor list by ID."""
         if len(self.sensors) == 0:
@@ -47,6 +46,10 @@ class Robot:
     def __str__(self):
         """Displays the robot's current status."""
         return f"Robot: {self.name} ID: {self.robot_id} Battery: {self.battery}% Status: {self.status}"
+
+class MobileRobot(Robot):
+    """Class for mobile robots."""
+    pass
 
 class RoboticArm(Robot):
     """Class for robotic arms."""
@@ -65,24 +68,3 @@ class RoboticArm(Robot):
     def __str__(self):
         return f"super().__str__(), Joint Count: {self.joint_count}"
 
-class DroneRobot(Robot):
-    """Class for drone robots."""
-    def __init__(self, robot_id, name, battery, status, max_altitude):
-        super().__init__(robot_id, name, battery, status)
-        self.max_altitude = max_altitude
-
-    def fly(self):
-        """Makes the drone robot fly."""
-        print(f"{self.name} is flying at maximum altitude of {self.max_altitude} feet.")
-
-    def land(self):
-        """Makes the drone robot land."""
-        print(f"{self.name} is landing.")
-
-    def __str__(self):
-        return f"super().__str__(), Maximum Altitude: {self.max_altitude} feet"
-
-def main():
-    pass
-if __name__ == "__main__":
-    main()
